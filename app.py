@@ -5,7 +5,7 @@ def f(x):
     return (x - 3) ** 2 + 4  # Función a minimizar
 
 # Obtener parámetros del usuario
-ITERATIONS = int(input("Ingrese el número de interaciones: "))  # Número de interaciones
+GENERATIONS = int(input("Ingrese el número de interaciones: "))  # Número de interaciones
 x_range_input = input("Ingrese el rango de valores de x (Ejemplo: 0,2): ")  # Rango de valores de x
 X_RANGE = tuple(map(int, x_range_input.split(',')))  # Convertir el rango en una tupla de enteros
 
@@ -39,7 +39,7 @@ def mutate(pop):
     return np.clip(pop, X_RANGE[0], X_RANGE[1])  # Asegurar que esté en rango
 
 # Algoritmo Genético Principal
-for gen in range(ITERATIONS):
+for gen in range(GENERATIONS):
     selected = select(population)  # Selección de los mejores
     children = crossover(selected)  # Cruzamiento
     mutated = mutate(children)  # Mutación
